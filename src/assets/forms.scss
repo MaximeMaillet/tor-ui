@@ -1,0 +1,30 @@
+@import './variables';
+
+.form {
+  &.card {
+    border-color: $primary;
+
+    .card-header {
+      background-color: $primary;
+      color: $white;
+    }
+
+    .card-block {
+      padding: 1rem;
+    }
+
+    .card-footer {
+      background-color: $gray-200;
+    }
+  }
+
+  .ng-valid[required], .ng-valid.required  {
+    border-right: 5px solid $green;
+  }
+
+  .form-errors {
+    color: $red;
+    font-size: 0.8em;
+    margin-left: 4em;
+  }
+}

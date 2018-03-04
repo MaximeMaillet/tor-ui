@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ApiService} from '../../Services/api.service';
 
 @Component({
     selector: 'app-root',
@@ -7,5 +8,19 @@ import { Component } from '@angular/core';
 })
 
 export class HomeComponent {
-    title = 'Home';
+    constructor(private api: ApiService) {
+
+      this.isCo()
+    }
+
+    isCo() {
+      this.api.isCo().subscribe(
+        (data) => {
+          console.log(data);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    }
 }
