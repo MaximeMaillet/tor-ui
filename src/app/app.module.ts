@@ -4,10 +4,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HeaderComponent} from "./Header/header.component";
+import {HeaderComponent} from "./Component/Header/header.component";
+import {FooterComponent} from "./Component/Footer/footer.component";
 
-import {HomeModule} from './Home/home.module';
-import {LoginModule} from "./Login/login.module";
+import {HomeModule} from './Component/Home/home.module';
+import {LoginModule} from './Component/Login/login.module';
 
 @NgModule({
     imports: [
@@ -20,6 +21,7 @@ import {LoginModule} from "./Login/login.module";
     declarations: [
       AppComponent,
       HeaderComponent,
+      FooterComponent,
     ],
     providers: [
 

@@ -16,4 +16,7 @@ import {LoginComponent} from "./login.component";
         LoginComponent
     ]
 })
-export class LoginModule { }
+
+export class LoginModule {
+  username = 'toto';
+}

@@ -2,6 +2,13 @@
 @import 'assets/variables.scss';
 @import "~bootstrap/scss/bootstrap.scss";
 
+html {
+  height: 100%;
+}
+
 body {
   background-color: $gray-100;
+  min-height: 100%;
+  margin: 0;
+  position: relative;
 }
