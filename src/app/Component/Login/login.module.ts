@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule }   from '@angular/forms';
-// import { HttpClientModule } from '@angular/common/http';
 
-import {LoginComponent} from "./login.component";
-import {LoginformComponent} from './Components/loginform.component';
+import {LoginComponent} from './login.component';
+import {LoginformComponent} from './Components/LoginForm/loginform.component';
+import {ForgotModalComponent} from './Components/ForgotModal/forgotmodal.component';
 
 @NgModule({
     imports: [
@@ -13,7 +13,8 @@ import {LoginformComponent} from './Components/loginform.component';
     ],
     declarations: [
       LoginComponent,
-      LoginformComponent
+      LoginformComponent,
+      ForgotModalComponent
     ],
     providers: [
 

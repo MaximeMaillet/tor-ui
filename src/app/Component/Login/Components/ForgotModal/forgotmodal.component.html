@@ -1,0 +1,36 @@
+<ng-template #loginModal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form class="form-login form" #loginForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="email">Email : </label>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-user-circle fa-1x" aria-hidden="true"></i></div>
+                    </div>
+                    <input
+                            type="text"
+                            class="form-control"
+                            id="email"
+                            name="email"
+                            placeholder="Email"
+                            [(ngModel)]="model.email"
+                            required
+                            #username="ngModel"
+                    >
+                </div>
+                <div [hidden]="email.valid|| email.pristine" class="form-errors">
+                    Email is required
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+    </div>
+</ng-template>

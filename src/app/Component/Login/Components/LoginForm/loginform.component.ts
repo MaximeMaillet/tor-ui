@@ -1,23 +1,26 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
 
-import {ApiService} from '../../../Services/api.service';
+import {ApiService} from '../../../../Services/api.service';
+import {ForgotModalComponent} from "../ForgotModal/forgotmodal.component";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'form-login',
   templateUrl: './loginform.component.html',
-  styleUrls: ['./loginform.component.scss']
+  styleUrls: ['./loginform.component.scss'],
+  entryComponents: [ForgotModalComponent]
 })
 
 export class LoginformComponent {
-
   constructor(
     private router: Router,
     private api: ApiService,
-    private cookieService: CookieService
-  ) {
+    private modalService: NgbModal
+  ) {}
 
+  open(c) {
+    this.modalService.open(c);
   }
 
   submitted = false;
