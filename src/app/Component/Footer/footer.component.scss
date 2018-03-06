@@ -5,13 +5,12 @@ footer {
   align-items: center;
   flex-direction: column;
   padding: 2em;
-  margin-top: 5rem;
   background-color: $gray-200;
   border-top: 1px solid $secondary;
-  //position: absolute;
-  //bottom: 0;
-  //left: 0;
-  //right: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
   .signature {
     margin: auto;
