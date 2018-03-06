@@ -8,19 +8,5 @@ import {ApiService} from '../../Services/api.service';
 })
 
 export class HomeComponent {
-    constructor(private api: ApiService) {
-
-      this.isCo()
-    }
-
-    isCo() {
-      this.api.isCo().subscribe(
-        (data) => {
-          console.log(data);
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
-    }
+    constructor(private api: ApiService) {}
 }

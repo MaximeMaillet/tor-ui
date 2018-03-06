@@ -3,6 +3,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule }   from '@angular/forms';
 
 import {SubscribeComponent} from './subscribe.component';
+import {SubscribeformComponent} from './Components/SubscribeForm/subscribeform.component';
 
 @NgModule({
     imports: [
@@ -11,6 +12,7 @@ import {SubscribeComponent} from './subscribe.component';
     ],
     declarations: [
       SubscribeComponent,
+      SubscribeformComponent,
     ],
     providers: [
 

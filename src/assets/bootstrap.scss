@@ -1,0 +1,9 @@
+@import './variables';
+
+.modal-content {
+  border-color: $secondary-dark;
+
+  .modal-header {
+    background-color: $secondary;
+  }
+}
