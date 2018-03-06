@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, TemplateRef, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 import {ApiService} from "../../../../Services/api.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
@@ -9,10 +9,16 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
   styleUrls: ['./forgotmodal.component.scss'],
 })
 export class ForgotModalComponent {
+  @ViewChild("loginModal") private engineModal: TemplateRef<any>;
   constructor(
     private router: Router,
     private api: ApiService,
+    private modalService: NgbModal
   ) {}
+
+  open() {
+    this.modalService.open(this.engineModal);
+  }
 
   submitted = false;
   model = {email: ''};

@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 
 import {ApiService} from '../../../../Services/api.service';
 import {ForgotModalComponent} from "../ForgotModal/forgotmodal.component";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'form-login',
@@ -15,13 +14,8 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 export class LoginformComponent {
   constructor(
     private router: Router,
-    private api: ApiService,
-    private modalService: NgbModal
+    private api: ApiService
   ) {}
-
-  open(c) {
-    this.modalService.open(c);
-  }
 
   submitted = false;
 

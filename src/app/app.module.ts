@@ -10,6 +10,7 @@ import {FooterComponent} from "./Component/Footer/footer.component";
 
 import {HomeModule} from './Component/Home/home.module';
 import {LoginModule} from './Component/Login/login.module';
+import {SubscribeModule} from './Component/Subscribe/subscribe.module';
 
 import {ApiService} from './Services/api.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
       AppRoutingModule,
       NgbModule.forRoot(),
       LoginModule,
+      SubscribeModule,
       HomeModule,
       ApiService,
       HttpClientModule,
