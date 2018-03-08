@@ -1,25 +1,25 @@
-<form class="form-login form card" #loginForm="ngForm" (ngSubmit)="onSubmit()">
+<form class="form-login form card h-100" #loginForm="ngForm" (ngSubmit)="onSubmit()">
     <login-modal #loginModal></login-modal>
     <div class="card-header">Log in</div>
     <div class="card-block">
         <div class="form-group">
-            <label for="username">Username : </label>
+            <label for="email">E-mail : </label>
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fa fa-user-circle fa-1x" aria-hidden="true"></i></div>
+                    <div class="input-group-text"><i class="fa fa-envelope fa-1x" aria-hidden="true"></i></div>
                 </div>
                 <input
                     type="text"
                     class="form-control"
-                    id="username"
-                    name="username"
-                    placeholder="Username"
-                    [(ngModel)]="model.username"
+                    id="email"
+                    name="email"
+                    placeholder="E-mail"
+                    [(ngModel)]="model.email"
                     required
-                    #username="ngModel"
+                    #email="ngModel"
                 >
             </div>
-            <div [hidden]="username.valid|| username.pristine" class="form-errors">
+            <div [hidden]="email.valid|| email.pristine" class="form-errors">
                 Username is required
             </div>
         </div>

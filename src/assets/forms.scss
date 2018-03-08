@@ -18,6 +18,23 @@
     }
   }
 
+  &.card-red {
+    border-color: $cyan;
+
+    .card-header {
+      background-color: $cyan;
+    }
+
+    .btn.btn-primary {
+      background-color: $cyan;
+      border-color: $cyan;
+    }
+
+    a {
+      color: $cyan;
+    }
+  }
+
   .ng-valid[required], .ng-valid.required  {
     border-right: 5px solid $green;
   }
