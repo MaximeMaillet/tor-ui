@@ -9,6 +9,7 @@ import {HeaderComponent} from "./Component/Header/header.component";
 import {FooterComponent} from "./Component/Footer/footer.component";
 
 import {SubscribeModule} from './Component/Subscribe/subscribe.module';
+import {PasswordModule} from './Component/Password/password.module';
 
 import {ApiService} from './Services/api.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
       SubscribeModule,
       ApiService,
       HttpClientModule,
+      PasswordModule,
     ],
     declarations: [
       AppComponent,

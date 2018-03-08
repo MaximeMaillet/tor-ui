@@ -24,4 +24,8 @@ export class ApiService {
   forgot(body) {
     return this.http.post(`${this.base_url}/authenticate/forgot`, body);
   }
+
+  password(body) {
+    return this.http.post(`${this.base_url}/authenticate/password`, body);
+  }
 }
