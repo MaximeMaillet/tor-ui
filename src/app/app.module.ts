@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import {HeaderComponent} from "./Component/Header/header.component";
 import {FooterComponent} from "./Component/Footer/footer.component";
 
-import {HomeModule} from './Component/Home/home.module';
 import {SubscribeModule} from './Component/Subscribe/subscribe.module';
 
 import {ApiService} from './Services/api.service';
@@ -20,7 +19,6 @@ import { HttpClientModule } from '@angular/common/http';
       AppRoutingModule,
       NgbModule.forRoot(),
       SubscribeModule,
-      HomeModule,
       ApiService,
       HttpClientModule,
     ],
