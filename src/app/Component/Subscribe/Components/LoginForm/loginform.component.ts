@@ -24,7 +24,7 @@ export class LoginformComponent {
   onSubmit() {
     this.api.login(this.model).subscribe(
       (data) => {
-        this.router.navigate(['']);
+        this.router.navigate(['torrents']);
       },
       (err) => {
         console.log(err);
