@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClientModule } from '@angular/common/http';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ToasterModule, ToasterService} from 'angular2-toaster';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,23 +20,26 @@ import {AuthService} from './Services/auth.service';
 @NgModule({
     imports: [
       BrowserModule,
-      AppRoutingModule,
       NgbModule.forRoot(),
-      SubscribeModule,
-      ApiService,
       HttpClientModule,
+      BrowserAnimationsModule,
+      ToasterModule.forRoot(),
+      AppRoutingModule,
       PasswordModule,
       TorrentModule,
+      SubscribeModule,
     ],
     declarations: [
       AppComponent,
       FooterComponent,
     ],
     providers: [
-      CookieService, AuthService,
+      CookieService, AuthService, ToasterService, ApiService
     ],
     bootstrap: [
       AppComponent
     ]
 })
-export class AppModule { }
+export class AppModule {
+
+}

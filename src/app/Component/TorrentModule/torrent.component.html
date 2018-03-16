@@ -1,4 +1,5 @@
 <app-header></app-header>
-<section>
-    coucou
+<section class="container">
+    <button class="btn btn-primary" (click)="popToast()">TOAST</button>
+    <torrent-bar *ngFor="let torrent of torrents" [torrent]="torrent"></torrent-bar>
 </section>
