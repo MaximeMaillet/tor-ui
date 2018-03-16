@@ -4,3 +4,14 @@
 
 <app-footer></app-footer>
 <toaster-container [toasterconfig]="config"></toaster-container>
+
+<ng-progress
+    #httpProgressBar
+    [direction]="'rightToLeftIncreased'"
+    [color]="'#4286f4'"
+    [trickleSpeed]="500"
+    [thick]="true"
+    [ease]="'easeInSine'"
+    [min]="0"
+    [max]="100"
+></ng-progress>

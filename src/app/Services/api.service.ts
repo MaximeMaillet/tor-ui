@@ -52,4 +52,8 @@ export class ApiService {
   getTorrent(id) {
     return this.http.get<Torrent>(`${this.base_url}/api/torrents/${id}`, httpOptions);
   }
+
+  downloadTorrent(id) {
+    return this.http.get<Torrent>(`${this.base_url}/api/torrents/${id}/download`, httpOptions);
+  }
 }

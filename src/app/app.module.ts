@@ -16,6 +16,8 @@ import {TorrentModule} from './Component/TorrentModule/torrent.module';
 
 import {ApiService} from './Services/api.service';
 import {AuthService} from './Services/auth.service';
+import {NgProgressModule} from "@ngx-progressbar/core";
+import {NgProgressHttpModule} from "@ngx-progressbar/http";
 
 @NgModule({
     imports: [
@@ -28,6 +30,8 @@ import {AuthService} from './Services/auth.service';
       PasswordModule,
       TorrentModule,
       SubscribeModule,
+      NgProgressModule.forRoot(),
+      NgProgressHttpModule,
     ],
     declarations: [
       AppComponent,
