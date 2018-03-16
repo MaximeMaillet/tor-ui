@@ -1,8 +1,8 @@
 import {Component, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 
-import {ApiService} from '../../../../Services/api.service';
 import {ForgotModalComponent} from "../ForgotModal/forgotmodal.component";
+import {AuthService} from "../../../../Guards/AuthService";
 
 @Component({
   selector: 'form-login',
@@ -14,23 +14,15 @@ import {ForgotModalComponent} from "../ForgotModal/forgotmodal.component";
 export class LoginformComponent {
   constructor(
     private router: Router,
-    private api: ApiService
+    private authService: AuthService
   ) {}
 
   submitted = false;
 
-  model = {username: '', password:''};
+  model = {email: '', password:''};
 
   onSubmit() {
-    this.api.login(this.model).subscribe(
-      (data) => {
-        this.router.navigate(['torrents']);
-      },
-      (err) => {
-        console.log(err);
-      },
-    );
-
+    this.authService.login(this.model.email, this.model.password);
     this.submitted = true;
   }
 }

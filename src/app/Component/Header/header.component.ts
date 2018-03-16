@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import {environment} from '../../../environments/environment';
 
-import {ApiService} from '../../Services/api.service';
 import {Router} from "@angular/router";
 import {CookieService} from "ngx-cookie-service";
+import {AuthService} from '../../Guards/AuthService';
 
 @Component({
   selector: 'app-header',
@@ -15,20 +15,12 @@ export class HeaderComponent {
   version = environment.version;
 
   constructor(
-    private apiService: ApiService,
     private router: Router,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private authService: AuthService,
   ) {}
 
   logout = async() => {
-    this.apiService.logout().subscribe(
-      (data) => {
-        this.cookieService.delete('connect.sid');
-        this.router.navigate(['']);
-      },
-      (err) => {
-        console.log(err);
-      },
-    );
+    this.authService.logout();
   }
 }

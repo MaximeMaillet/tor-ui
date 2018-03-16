@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CookieService } from 'ngx-cookie-service';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToasterModule, ToasterService} from 'angular2-toaster';
 
@@ -15,9 +15,11 @@ import {PasswordModule} from './Component/Password/password.module';
 import {TorrentModule} from './Component/TorrentModule/torrent.module';
 
 import {ApiService} from './Services/api.service';
-import {AuthService} from './Services/auth.service';
 import {NgProgressModule} from "@ngx-progressbar/core";
 import {NgProgressHttpModule} from "@ngx-progressbar/http";
+import {AuthService} from "./Guards/AuthService";
+import {InterceptorGuard} from "./Guards/InterceptorGuard";
+import {AuthGuard} from "./Guards/AuthGuard";
 
 @NgModule({
     imports: [
@@ -38,7 +40,12 @@ import {NgProgressHttpModule} from "@ngx-progressbar/http";
       FooterComponent,
     ],
     providers: [
-      CookieService, AuthService, ToasterService, ApiService
+      CookieService, AuthService, ToasterService, ApiService, AuthGuard,
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: InterceptorGuard,
+        multi: true,
+      }
     ],
     bootstrap: [
       AppComponent

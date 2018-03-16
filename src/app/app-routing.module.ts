@@ -4,7 +4,7 @@ import { SubscribeComponent } from './Component/Subscribe/subscribe.component';
 import { PasswordComponent} from './Component/Password/password.component';
 import { TorrentModuleComponent } from "./Component/TorrentModule/torrent.component";
 
-import {AuthService} from './Services/auth.service';
+import {AuthGuard} from './Guards/AuthGuard';
 
 const routes: Routes = [
   {
@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path: 'torrents',
     component: TorrentModuleComponent,
-    canActivate: [AuthService],
+    canActivate: [AuthGuard],
     data: {
       expectedRole: ['user', 'admin']
     }
