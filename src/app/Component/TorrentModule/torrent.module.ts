@@ -11,6 +11,7 @@ import {ToasterService} from "angular2-toaster";
 import {NgProgressModule} from "@ngx-progressbar/core";
 import {TorrentFilesModal} from "../Modals/TorrentFilesModal/torrentfiles.modal";
 import {FilesBarComponent} from "../FilesBar/filesbar.component";
+import {WebSocketService} from "../../Services/websocket.service";
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import {FilesBarComponent} from "../FilesBar/filesbar.component";
     FilesBarComponent,
   ],
   providers: [
+    WebSocketService
   ],
   bootstrap: [
     TorrentModuleComponent

@@ -20,7 +20,11 @@ export class HeaderComponent {
     private authService: AuthService,
   ) {}
 
-  logout = async() => {
+  logout() {
     this.authService.logout();
+  }
+
+  addTorrent() {
+
   }
 }

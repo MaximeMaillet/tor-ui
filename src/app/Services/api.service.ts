@@ -62,4 +62,16 @@ export class ApiService {
       responseType: 'blob'
     });
   }
+
+  playTorrent(id) {
+    return this.http.get(`${this.base_url}/api/torrents/${id}/resume`, httpOptions);
+  }
+
+  pauseTorrent(id) {
+    return this.http.get(`${this.base_url}/api/torrents/${id}/pause`, httpOptions);
+  }
+
+  removeTorrent(id) {
+    return this.http.delete(`${this.base_url}/api/torrents/${id}`, httpOptions);
+  }
 }

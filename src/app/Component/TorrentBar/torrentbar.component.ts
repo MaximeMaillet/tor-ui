@@ -1,7 +1,8 @@
-import {AfterViewInit, Component, Input, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
 import {NgProgress} from "@ngx-progressbar/core";
 import {ApiService} from "../../Services/api.service";
 import {NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
+import {AuthService} from "../../Guards/AuthService";
 
 @Component({
   selector: 'torrent-bar',
@@ -9,21 +10,19 @@ import {NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
   styleUrls: ['./torrentbar.scss']
 })
 
-export class TorrentBarComponent implements AfterViewInit {
+export class TorrentBarComponent implements OnInit {
   @Input() torrent: any;
+
+  public currentUser;
 
   constructor(
     private progress: NgProgress,
     private apiService: ApiService,
+    private authService: AuthService,
   ) {}
 
-
-  ngAfterViewInit() {
-    this.progress.start();
-
-    setTimeout(() => {
-      this.progress.complete();
-    }, 2000);
+  ngOnInit(): void {
+    this.currentUser = this.authService.getUser();
   }
 
   details() {
@@ -31,18 +30,29 @@ export class TorrentBarComponent implements AfterViewInit {
   }
 
   play() {
-
+    this.apiService.playTorrent(this.torrent.id).subscribe(
+      (data) => {
+        console.log('play');
+      },
+      (err) => this.apiService.handleError(err)
+    );
   }
 
   pause() {
-
-  }
-
-  download() {
-
+    this.apiService.pauseTorrent(this.torrent.id).subscribe(
+      (data) => {
+        console.log('pause');
+      },
+      (err) => this.apiService.handleError(err)
+    );
   }
 
   remove() {
-
+    this.apiService.removeTorrent(this.torrent.id).subscribe(
+      (data) => {
+        console.log('remove');
+      },
+      (err) => this.apiService.handleError(err)
+    );
   }
 }

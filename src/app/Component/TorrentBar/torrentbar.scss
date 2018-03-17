@@ -5,6 +5,7 @@
   border-radius: 5px;
 
   .name {
+    transition: background-color 500ms;
     background-color: $secondary;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -48,6 +49,24 @@
     .author {
       font-style: italic;
       font-size: 0.6em;
+    }
+  }
+
+  &.incomplete {
+    color: $black;
+
+    .name {
+      transition: background-color 500ms;
+      background-color: $primary;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      padding: 0.5rem 0.5rem 0.5rem 1rem;
+      font-weight: bold;
+    }
+
+    .content {
+      margin-top: 0.5rem;
+      padding: 0.5rem;
     }
   }
 }
