@@ -18,7 +18,11 @@ export class ApiService {
   ) {}
 
   handleError(err) {
-    this.toasterService.pop('error', `Error ${err.status}`, err.error.message ? err.error.message : 'Une erreur est survenue');
+    if(err.status === 401) {
+      this.toasterService.pop('error', `UnAuthorized`, 'You don\'t have permissions.');
+    } else {
+      this.toasterService.pop('error', `Error ${err.status}`, err.error.message ? err.error.message : 'Une erreur est survenue');
+    }
   }
 
   login(body) {
@@ -41,8 +45,8 @@ export class ApiService {
     return this.http.get(`${this.base_url}/authenticate/logout`, httpOptions);
   }
 
-  getMe() {
-    return this.http.get(`${this.base_url}/api/users/me`, httpOptions);
+  addTorrent(body) {
+    return this.http.post<Torrent>(`${this.base_url}/api/torrents`, body, httpOptions);
   }
 
   getTorrents() {
@@ -53,7 +57,9 @@ export class ApiService {
     return this.http.get<Torrent>(`${this.base_url}/api/torrents/${id}`, httpOptions);
   }
 
-  downloadTorrent(id) {
-    return this.http.get<Torrent>(`${this.base_url}/api/torrents/${id}/download`, httpOptions);
+  downloadFile(torrentId, fileId) {
+    return this.http.get(`${this.base_url}/api/torrents/${torrentId}/download/${fileId}`, {
+      responseType: 'blob'
+    });
   }
 }

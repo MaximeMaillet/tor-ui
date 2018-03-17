@@ -1,4 +1,5 @@
 <div class="row torrent-bar mb-5">
+    <torrent-files-modal #torrentFilesModal></torrent-files-modal>
     <div class="col-md-12 name d-flex flex-row" (click)="details()">
         <div class="title">{{torrent.name}}</div>
         <div class="details ml-auto mr-2"><i class="fa fa-info"></i></div>
@@ -28,11 +29,21 @@
         <div class="ratio">
             <small>Ratio : {{ torrent.ratio }}</small>
         </div>
+        <div class="files">
+            <a href="javascript:" (click)="torrentFilesModal.open(torrent.id, torrent.files)">
+                <small>{{ torrent.files.length }} files</small>
+            </a>
+        </div>
     </div>
-    <div class="col-md-2 content text-right">
-        <button class="btn btn-primary" (click)="download()"><i class="fa fa-download"></i></button>
-        <button class="btn btn-success"><i class="fa fa-play"></i></button>
-        <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+    <div class="col-md-2 content text-right d-flex flex-column">
+        <div class="action">
+            <button class="btn btn-primary" (click)="torrentFilesModal.open(torrent.id, torrent.files)"><i class="fa fa-download"></i></button>
+            <button class="btn btn-success"><i class="fa fa-play"></i></button>
+            <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+        </div>
+        <div class="author">
+            By {{ torrent.user.email }}
+        </div>
         <!--<i class="fa fa-spinner faa-spin animated" ng-if="isLoaded"></i>-->
         <!--<button class="btn btn-primary btn-info" ng-click="infoTorrent()"><i class="fa fa-search" aria-hidden="true"></i></button>-->
         <!--<button class="btn btn-primary btn-success" ng-click="playTorrent()" ng-if="!bind.active"><i class="fa fa-play" aria-hidden="true"></i></button>-->

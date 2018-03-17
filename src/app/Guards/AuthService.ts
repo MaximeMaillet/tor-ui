@@ -3,7 +3,8 @@ import {Router} from '@angular/router';
 import {ApiService} from "../Services/api.service";
 import * as jwt_decode from 'jwt-decode';
 
-const TOKEN_NAME = 'tor.ui';
+const TOKEN_NAME = 'tor.ui.token';
+const USER_NAME = 'tor.ui.user';
 
 @Injectable()
 export class AuthService {
@@ -21,9 +22,16 @@ export class AuthService {
     localStorage.setItem(TOKEN_NAME, token);
   }
 
+  getUser(): object {
+    return JSON.parse(localStorage.getItem(USER_NAME));
+  }
+
+  setUser(user: object): void {
+    localStorage.setItem(USER_NAME, JSON.stringify(user));
+  }
+
   getTokenExpirationDate(token: string): Date {
     const decoded = jwt_decode(token);
-    console.log(decoded);
 
     if (decoded.exp === undefined) return null;
 
@@ -52,6 +60,7 @@ export class AuthService {
     return this.apiService.login({email, password}).subscribe(
       (data) => {
         this.setToken(data['token']);
+        this.setUser(data['user']);
         this.router.navigate(['torrents']);
       },
       (err) => this.apiService.handleError(err)
@@ -62,6 +71,7 @@ export class AuthService {
     return this.apiService.logout().subscribe(
       (data) => {
         localStorage.removeItem(TOKEN_NAME);
+        localStorage.removeItem(USER_NAME);
         this.router.navigate(['']);
       },
       (err) => this.apiService.handleError(err)

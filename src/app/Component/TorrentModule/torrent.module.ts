@@ -9,6 +9,8 @@ import {TorrentBarComponent} from '../TorrentBar/torrentbar.component';
 import {TorrentModuleComponent} from "./torrent.component";
 import {ToasterService} from "angular2-toaster";
 import {NgProgressModule} from "@ngx-progressbar/core";
+import {TorrentFilesModal} from "../Modals/TorrentFilesModal/torrentfiles.modal";
+import {FilesBarComponent} from "../FilesBar/filesbar.component";
 
 @NgModule({
   imports: [
@@ -20,6 +22,8 @@ import {NgProgressModule} from "@ngx-progressbar/core";
     TorrentModuleComponent,
     HeaderComponent,
     TorrentBarComponent,
+    TorrentFilesModal,
+    FilesBarComponent,
   ],
   providers: [
   ],

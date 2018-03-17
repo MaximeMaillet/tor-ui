@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, Input, ViewChild} from '@angular/core';
 import {NgProgress} from "@ngx-progressbar/core";
 import {ApiService} from "../../Services/api.service";
+import {NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'torrent-bar',
@@ -38,12 +39,7 @@ export class TorrentBarComponent implements AfterViewInit {
   }
 
   download() {
-    this.apiService.downloadTorrent(this.torrent.id).subscribe(
-      (data) => {
-        console.log(data)
-      },
-      (err) => this.apiService.handleError(err)
-    );
+
   }
 
   remove() {
