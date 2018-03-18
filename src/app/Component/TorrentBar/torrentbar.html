@@ -58,20 +58,20 @@
             >
                 <i class="fa fa-download"></i>
             </button>
-            <button
-                class="btn btn-success"
-                *ngIf="torrent.finished && torrent.active && torrent.user.id == currentUser.id"
-                (click)="play()"
-            >
-                <i class="fa fa-play"></i>
-            </button>
-            <button
-                    class="btn btn-warning"
-                    *ngIf="torrent.finished && !torrent.active && torrent.user.id == currentUser.id"
-                    (click)="pause()"
-            >
-                <i class="fa fa-pause"></i>
-            </button>
+            <!--<button-->
+                <!--class="btn btn-success"-->
+                <!--*ngIf="!torrent.active && torrent.user.id == currentUser.id"-->
+                <!--(click)="play()"-->
+            <!--&gt;-->
+                <!--<i class="fa fa-play"></i>-->
+            <!--</button>-->
+            <!--<button-->
+                    <!--class="btn btn-warning"-->
+                    <!--*ngIf="torrent.active && torrent.user.id == currentUser.id"-->
+                    <!--(click)="pause()"-->
+            <!--&gt;-->
+                <!--<i class="fa fa-pause"></i>-->
+            <!--</button>-->
             <button
                 class="btn btn-danger"
                 *ngIf="torrent.finished && torrent.user.id == currentUser.id"

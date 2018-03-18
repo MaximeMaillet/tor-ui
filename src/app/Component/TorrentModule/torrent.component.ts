@@ -22,15 +22,12 @@ export class TorrentModuleComponent implements OnInit {
 
     webSocketService.on(MESSAGE.TORRENT_UPDATE, (torrents) => {
       const arrayHash = torrents.map((torrent) => torrent.hash);
-      // for(const i in this.torrents) {
-      //   const index = arrayHash.indexOf(this.torrents[i].hash);
-      //   console.log(this.torrents[i].name);
-      //   if(this.torrents[i].finished && index !== -1) {
-      //     console.log('finished');
-      //     console.log(this.torrents[i]);
-      //     this.torrents[i] = torrents[index];
-      //   }
-      // }
+      for(const i in this.torrents) {
+        const index = arrayHash.indexOf(this.torrents[i].hash);
+        if(this.torrents[i].finished && index !== -1) {
+          this.torrents[i] = torrents[index];
+        }
+      }
     });
 
     webSocketService.on(MESSAGE.TORRENT_UPDATED, (torrent) => {
@@ -64,9 +61,5 @@ export class TorrentModuleComponent implements OnInit {
       },
       (err) => this.apiService.handleError(err)
     );
-  }
-
-  dedupe(torrents) {
-    console.log(torrents);
   }
 }

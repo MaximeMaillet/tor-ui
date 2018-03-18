@@ -2,6 +2,7 @@ import {Injectable, NgModule} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Torrent} from "../Models/Torrent";
 import {ToasterService} from 'angular2-toaster';
+import {environment} from '../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -10,7 +11,8 @@ const httpOptions = {
 
 @Injectable()
 export class ApiService {
-  base_url = 'http://localhost:8090';
+  // base_url = 'http://localhost:8080';
+  base_url = environment.api.base_url;
 
   constructor(
     private http: HttpClient,
@@ -46,7 +48,7 @@ export class ApiService {
   }
 
   addTorrent(body) {
-    return this.http.post<Torrent>(`${this.base_url}/api/torrents`, body, httpOptions);
+    return this.http.post<Torrent>(`${this.base_url}/api/torrents`, body);
   }
 
   getTorrents() {

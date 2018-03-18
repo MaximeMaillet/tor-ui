@@ -17,8 +17,9 @@
     </div>
 
     <div class="logout">
-        <button class="btn btn-primary" (click)="addTorrent()"><i class="fa fa-plus"></i></button>
+        <button class="btn btn-primary" (click)="torrentAddModal.open()"><i class="fa fa-plus"></i></button>
         &nbsp;
         <button class="btn btn-primary" (click)="logout()">Log Out</button>
     </div>
+    <torrent-add-modal #torrentAddModal></torrent-add-modal>
 </nav>

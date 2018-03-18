@@ -1,7 +1,6 @@
-import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NgProgress} from "@ngx-progressbar/core";
 import {ApiService} from "../../Services/api.service";
-import {NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 import {AuthService} from "../../Guards/AuthService";
 
 @Component({

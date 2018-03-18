@@ -10,13 +10,14 @@ import { saveAs } from 'file-saver/FileSaver';
 
 export class FilesBarComponent {
   @Input() file: any;
+  @Input() torrentId: number;
 
   constructor(
     private apiService: ApiService,
   ) {}
 
-  download() {
-    this.apiService.downloadFile(this.file.torrentId, this.file.id).subscribe(
+  download(torrentId) {
+    this.apiService.downloadFile(torrentId, this.file.id).subscribe(
       (blob) => {
         saveAs(blob, this.file.name);
       },
