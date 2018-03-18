@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-main">
+    <a href="torrents" class="icon"></a>
     <div class="title">
-        <h1><a class="navbar-brand" href="">Tor-Ui</a></h1>
-        <h2>v{{version}}</h2>
+        <h1><a class="navbar-brand" href="torrents">ToTor</a></h1>
+        <h2>Seedbox v{{version}}</h2>
     </div>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,6 +13,9 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="torrents">Home</a>
+            </li>
+            <li *ngIf="isAdmin()">
+                <a class="nav-link" href="admin">Admin</a>
             </li>
         </ul>
     </div>

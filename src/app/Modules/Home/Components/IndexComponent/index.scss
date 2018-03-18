@@ -1,0 +1,79 @@
+@import '../../../../../assets/variables';
+
+.container-home {
+  position: relative;
+  padding: 2rem 0;
+  height: 100%;
+
+  .flex-row {
+    height: 100%;
+    position: absolute;
+    transition: left 500ms, right 500ms;
+
+    &.hide-left {
+      left: calc((100% * (1/4) + 2rem) * -1);
+      right: 1rem;
+    }
+
+    &.hide-right {
+      right: calc((100% * (1/4) + 2rem) * -1);
+      left: 1rem;
+    }
+
+    .flex-col {
+      vertical-align: top;
+      display: inline-block;
+      margin: 0 0.5rem;
+
+      &:nth-of-type(1) {
+        width: calc(100% * (1/4) - 1rem - 5px);
+      }
+
+      &:nth-of-type(2) {
+        width: calc(100% * (2/4) - 1rem - 5px);
+      }
+
+      &:nth-of-type(3) {
+        width: calc(100% * (1/4) - 1rem - 5px);
+      }
+    }
+  }
+}
+
+.informations {
+  border: 1px solid $primary;
+  border-radius: 5px;
+  padding: 1rem;
+
+  h1 {
+    color: $primary;
+    font-size: 2rem;
+    border-bottom: 1px solid $black;
+  }
+
+  article {
+    overflow: hidden;
+
+    .icon {
+      width: 100px;
+      height: 100px;
+    }
+
+    &.left {
+      .icon {
+        float: left;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        background: url('../../../../../assets/images/cloud-computing.svg') no-repeat;
+      }
+    }
+
+    &.right {
+      .icon {
+        float: right;
+        margin-left: 1rem;
+        background: url('../../../../../assets/images/cloud-computing1.svg') no-repeat;
+      }
+    }
+  }
+}

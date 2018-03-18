@@ -1,0 +1,39 @@
+<app-header-anonymous></app-header-anonymous>
+<section class="container-fluid container-home">
+    <div
+        class="flex-row"
+        [ngClass]="{
+            'hide-left': left,
+            'hide-right': right
+         }">
+        <div class="flex-col">
+            <subscribe (logIn)="slide()"></subscribe>
+        </div>
+        <div class="flex-col">
+            <div class="informations">
+                <h1>ToTor : The King of Store !</h1>
+                <article class="left">
+                    <div class="icon"></div>
+                    <p>
+                        Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
+                        Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte
+                        Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
+                        Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte
+                    </p>
+                </article>
+                <article class="right">
+                    <div class="icon"></div>
+                    <p>
+                        Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
+                        Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte
+                        Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
+                        Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte
+                    </p>
+                </article>
+            </div>
+        </div>
+        <div class="flex-col">
+            <login (subscribe)="slide()"></login>
+        </div>
+    </div>
+</section>

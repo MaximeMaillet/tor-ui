@@ -1,14 +1,15 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import { Router } from '@angular/router';
 import {ApiService} from '../../../../Services/api.service';
 
 @Component({
-  selector: 'form-subscribe',
-  templateUrl: './subscribeform.html',
-  styleUrls: ['./subscribeform.scss'],
+  selector: 'subscribe',
+  templateUrl: './subscribe.html',
 })
 
-export class SubscribeformComponent {
+export class SubscribeComponent {
+  @Output() logIn = new EventEmitter();
+
   constructor(
     private router: Router,
     private api: ApiService
@@ -21,7 +22,7 @@ export class SubscribeformComponent {
   onSubmit() {
     this.api.subscribe(this.model).subscribe(
       (data) => {
-        // this.router.navigate(['']);
+        this.router.navigate(['']);
       },
       (err) => {
         console.log(err);
@@ -29,5 +30,10 @@ export class SubscribeformComponent {
     );
 
     this.submitted = true;
+  }
+
+  toLogin() {
+    console.log('emit');
+    this.logIn.emit();
   }
 }

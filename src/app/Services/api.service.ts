@@ -11,8 +11,7 @@ const httpOptions = {
 
 @Injectable()
 export class ApiService {
-  // base_url = 'http://localhost:8080';
-  base_url = environment.api.base_url;
+  base_url = `${environment.api.base_url}/api`;
 
   constructor(
     private http: HttpClient,
@@ -28,19 +27,19 @@ export class ApiService {
   }
 
   login(body) {
-    return this.http.post(`${this.base_url}/api/authenticate/login`, body, httpOptions);
+    return this.http.post(`${this.base_url}/authenticate/login`, body, httpOptions);
   }
 
   subscribe(body) {
-    return this.http.post(`${this.base_url}/api/authenticate/subscribe`, body, httpOptions);
+    return this.http.post(`${this.base_url}/authenticate/subscribe`, body, httpOptions);
   }
 
   forgot(body) {
-    return this.http.post(`${this.base_url}/api/authenticate/forgot`, body, httpOptions);
+    return this.http.post(`${this.base_url}/authenticate/forgot`, body, httpOptions);
   }
 
   password(body) {
-    return this.http.post(`${this.base_url}/api/authenticate/password`, body, httpOptions);
+    return this.http.post(`${this.base_url}/authenticate/password`, body, httpOptions);
   }
 
   logout() {
@@ -48,32 +47,32 @@ export class ApiService {
   }
 
   addTorrent(body) {
-    return this.http.post<Torrent>(`${this.base_url}/api/torrents`, body);
+    return this.http.post<Torrent>(`${this.base_url}/torrents`, body);
   }
 
   getTorrents() {
-    return this.http.get<Torrent[]>(`${this.base_url}/api/torrents`, httpOptions);
+    return this.http.get<Torrent[]>(`${this.base_url}/torrents`, httpOptions);
   }
 
   getTorrent(id) {
-    return this.http.get<Torrent>(`${this.base_url}/api/torrents/${id}`, httpOptions);
+    return this.http.get<Torrent>(`${this.base_url}/torrents/${id}`, httpOptions);
   }
 
   downloadFile(torrentId, fileId) {
-    return this.http.get(`${this.base_url}/api/torrents/${torrentId}/download/${fileId}`, {
+    return this.http.get(`${this.base_url}/torrents/${torrentId}/download/${fileId}`, {
       responseType: 'blob'
     });
   }
 
   playTorrent(id) {
-    return this.http.get(`${this.base_url}/api/torrents/${id}/resume`, httpOptions);
+    return this.http.get(`${this.base_url}/torrents/${id}/resume`, httpOptions);
   }
 
   pauseTorrent(id) {
-    return this.http.get(`${this.base_url}/api/torrents/${id}/pause`, httpOptions);
+    return this.http.get(`${this.base_url}/torrents/${id}/pause`, httpOptions);
   }
 
   removeTorrent(id) {
-    return this.http.delete(`${this.base_url}/api/torrents/${id}`, httpOptions);
+    return this.http.delete(`${this.base_url}/torrents/${id}`, httpOptions);
   }
 }

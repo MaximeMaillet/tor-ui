@@ -1,6 +1,6 @@
 import {Component, TemplateRef, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
-import {ApiService} from "../../../../Services/api.service";
+import {ApiService} from "../../../Services/api.service";
 import {NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 import {FormGroup} from "@angular/forms";
 

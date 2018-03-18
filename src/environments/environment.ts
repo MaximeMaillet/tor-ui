@@ -8,5 +8,8 @@ export const environment = {
   version: '0.0.1',
   api: {
     base_url: 'http://localhost:8090'
+  },
+  websocket: {
+    base_url: 'http://localhost:8091'
   }
 };

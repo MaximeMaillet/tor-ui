@@ -1,13 +1,12 @@
 import {Injectable} from '@angular/core';
 import {AuthService} from "../Guards/AuthService";
 import * as io from 'socket.io-client';
-import { Observable } from 'rxjs/Observable';
-import * as Rx from 'rxjs/Rx';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class WebSocketService {
-  // base_url = 'http://localhost:8081';
-  base_url = 'http://localhost:8091';
+  base_url = environment.websocket.base_url;
+
   private socket;
 
   constructor(

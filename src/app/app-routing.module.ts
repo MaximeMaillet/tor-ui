@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SubscribeComponent } from './Component/Subscribe/subscribe.component';
-import { PasswordComponent} from './Component/Password/password.component';
-import { TorrentModuleComponent } from "./Component/TorrentModule/torrent.component";
-
 import {AuthGuard} from './Guards/AuthGuard';
+
+import { PasswordComponent} from './Component/Password/password.component';
+
+import {IndexComponent} from "./Modules/Home/Components/IndexComponent/index.component";
+import {TorrentsComponent} from "./Modules/TorrentModule/Components/Torrents/torrents.component";
+import {AdminComponent} from "./Modules/Admin/Components/admin.component";
 
 const routes: Routes = [
   {
     path: '',
-    component: SubscribeComponent,
+    component: IndexComponent,
   },
   {
     path: 'authenticate/password/:token',
@@ -17,10 +19,18 @@ const routes: Routes = [
   },
   {
     path: 'torrents',
-    component: TorrentModuleComponent,
+    component: TorrentsComponent,
     canActivate: [AuthGuard],
     data: {
       expectedRole: ['user', 'admin']
+    }
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    canActivate: [AuthGuard],
+    data: {
+      expectedRole: ['admin']
     }
   }
 ];

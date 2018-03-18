@@ -1,15 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {ApiService} from "../../Services/api.service";
-import {Torrent} from "../../Models/Torrent";
-import {WebSocketService, MESSAGE} from "../../Services/websocket.service";
+import {ApiService} from "../../../../Services/api.service";
+import {Torrent} from "../../../../Models/Torrent";
+import {WebSocketService, MESSAGE} from "../../../../Services/websocket.service";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './torrent.component.html',
+  templateUrl: './torrents.html',
   styleUrls: ['./torrents.scss']
 })
 
-export class TorrentModuleComponent implements OnInit {
+export class TorrentsComponent implements OnInit {
   torrents: Torrent[] = [];
 
   constructor(

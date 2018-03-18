@@ -30,6 +30,13 @@ export class AuthService {
     localStorage.setItem(USER_NAME, JSON.stringify(user));
   }
 
+  isGranted(role) {
+    // const decoded = jwt_decode(this.getToken());
+    // const userRole = new Buffer(decoded.user.roles).toString();
+    // return userRole & role;
+    return true;
+  }
+
   getTokenExpirationDate(token: string): Date {
     const decoded = jwt_decode(token);
 
