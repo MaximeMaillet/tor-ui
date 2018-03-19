@@ -5,6 +5,7 @@
         </div>
     </div>
     <div class="col-md-1 actions">
-        <button class="btn btn-primary" (click)="download(torrentId)"><i class="fa fa-download"></i></button>
+        <!--<button class="btn btn-primary" (click)="download(torrentId)"><i class="fa fa-download"></i></button>-->
+        <a target="_blank" href="/api/torrents/{{torrentId}}/download/{{file.id}}" class="btn btn-primary" (click)="download(torrentId)"><i class="fa fa-download"></i></a>
     </div>
 </div>

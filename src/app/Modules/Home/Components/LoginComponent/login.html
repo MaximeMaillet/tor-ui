@@ -1,6 +1,6 @@
 <form class="form-login form card h-100" #loginForm="ngForm" (ngSubmit)="onSubmit()">
     <login-modal #loginModal></login-modal>
-    <div class="card-header">Log in</div>
+    <div class="card-header" (click)="toSubscribe()">Log in</div>
     <div class="card-block">
         <div class="form-group">
             <label for="email1">E-mail : </label>
