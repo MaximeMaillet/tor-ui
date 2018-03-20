@@ -65,7 +65,7 @@ export class ApiService {
   }
 
   playTorrent(id) {
-    return this.http.get(`${this.base_url}/torrents/${id}/resume`, httpOptions);
+    return this.http.get(`${this.base_url}/torrents/${id}/play`, httpOptions);
   }
 
   pauseTorrent(id) {

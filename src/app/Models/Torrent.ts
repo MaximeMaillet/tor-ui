@@ -9,4 +9,5 @@ export interface Torrent {
   uploaded: number;
   ratio: number;
   progress: number;
+  playing: boolean;
 }

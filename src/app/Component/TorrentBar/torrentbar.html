@@ -6,7 +6,7 @@
 >
     <torrent-files-modal #torrentFilesModal></torrent-files-modal>
     <div class="col-md-12 name d-flex flex-row" (click)="details()">
-        <div class="title">{{torrent.name}} <span *ngIf="torrent.active">(Active)</span></div>
+        <div class="title">{{torrent.name}}</div>
         <div class="details ml-auto mr-2"><i class="fa fa-info"></i></div>
     </div>
     <div class="col-md-12 torrent-progress-bar">
@@ -14,8 +14,8 @@
             <div
                 [ngClass]="{
                     'progress-bar': true,
-                    'progress-bar-striped': torrent.active,
-                    'progress-bar-animated': torrent.active
+                    'progress-bar-striped': torrent.playing,
+                    'progress-bar-animated': torrent.playing
                 }"
                 role="progressbar"
                 [style.width.%]="torrent.progress < 1 ? 1 : torrent.progress"
@@ -58,20 +58,21 @@
             >
                 <i class="fa fa-download"></i>
             </button>
-            <!--<button-->
-                <!--class="btn btn-success"-->
-                <!--*ngIf="!torrent.active && torrent.user.id == currentUser.id"-->
-                <!--(click)="play()"-->
-            <!--&gt;-->
-                <!--<i class="fa fa-play"></i>-->
-            <!--</button>-->
-            <!--<button-->
-                    <!--class="btn btn-warning"-->
-                    <!--*ngIf="torrent.active && torrent.user.id == currentUser.id"-->
-                    <!--(click)="pause()"-->
-            <!--&gt;-->
-                <!--<i class="fa fa-pause"></i>-->
-            <!--</button>-->
+            <button
+                class="btn btn-success"
+                *ngIf="!torrent.active && torrent.user.id == currentUser.id"
+                (click)="play()"
+                [disabled]="!torrent.hasOwnProperty('active')"
+            >
+                <i class="fa fa-play"></i>
+            </button>
+            <button
+                    class="btn btn-warning"
+                    *ngIf="torrent.active && torrent.user.id == currentUser.id"
+                    (click)="pause()"
+            >
+                <i class="fa fa-pause"></i>
+            </button>
             <button
                 class="btn btn-danger"
                 *ngIf="torrent.finished && torrent.user.id == currentUser.id"

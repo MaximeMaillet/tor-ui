@@ -41,6 +41,7 @@ export class TorrentsComponent implements OnInit {
           this.torrents[i].uploaded = torrent.uploaded;
           this.torrents[i].ratio = torrent.ratio;
           this.torrents[i].active = torrent.active;
+          this.torrents[i].playing = torrent.playing;
         }
       }
     });
