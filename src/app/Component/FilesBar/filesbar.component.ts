@@ -17,7 +17,7 @@ export class FilesBarComponent {
   ) {}
 
   download(torrentId) {
-    this.apiService.downloadFile(torrentId, this.file.id).subscribe(
+    this.apiService.downloadFile(torrentId, this.file.id, this.file.name).subscribe(
       (blob) => {
         saveAs(blob, this.file.name);
       },

@@ -58,8 +58,9 @@ export class ApiService {
     return this.http.get<Torrent>(`${this.base_url}/torrents/${id}`, httpOptions);
   }
 
-  downloadFile(torrentId, fileId) {
-    return this.http.get(`${this.base_url}/torrents/${torrentId}/download/${fileId}`, {
+  downloadFile(torrentId, fileId, name) {
+    console.log(name);
+    return this.http.get(`${this.base_url}/torrents/${torrentId}/download/${fileId}/${encodeURIComponent(name)}`, {
       responseType: 'blob'
     });
   }
