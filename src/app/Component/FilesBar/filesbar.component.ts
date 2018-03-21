@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {ApiService} from "../../Services/api.service";
 import { saveAs } from 'file-saver/FileSaver';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'files-bar',
@@ -23,5 +24,9 @@ export class FilesBarComponent {
       },
       (err) => this.apiService.handleError(err)
     );
+  }
+
+  getDownloadLink(torrentId) {
+    return `${environment.api.base_url}/api/torrents/${this.torrentId}/download/${this.file.id}/${encodeURIComponent(this.file.name)}`;
   }
 }

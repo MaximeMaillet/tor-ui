@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  version: '0.1.0',
+  version: '0.1.2',
   api: {
     base_url: 'http://localhost:8090'
   },

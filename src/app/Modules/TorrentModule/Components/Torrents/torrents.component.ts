@@ -31,19 +31,15 @@ export class TorrentsComponent implements OnInit {
     });
 
     webSocketService.on(MESSAGE.TORRENT_UPDATED, (torrent) => {
-      for(const i in this.torrents) {
-        if(this.torrents[i].hash === torrent.hash) {
-          if (!this.torrents[i].finished) {
-            this.torrents[i].downloaded = torrent.downloaded;
-            this.torrents[i].progress = torrent.progress;
-          }
+      this.updateTorrent(torrent);
+    });
 
-          this.torrents[i].uploaded = torrent.uploaded;
-          this.torrents[i].ratio = torrent.ratio;
-          this.torrents[i].active = torrent.active;
-          this.torrents[i].playing = torrent.playing;
-        }
-      }
+    webSocketService.on(MESSAGE.TORRENT_PAUSED, (torrent) => {
+      this.updateTorrent(torrent);
+    });
+
+    webSocketService.on(MESSAGE.TORRENT_RESUMED, (torrent) => {
+      this.updateTorrent(torrent);
     });
 
     webSocketService.on(MESSAGE.TORRENT_FINISHED, (torrent) => {
@@ -62,5 +58,21 @@ export class TorrentsComponent implements OnInit {
       },
       (err) => this.apiService.handleError(err)
     );
+  }
+
+  updateTorrent(torrent) {
+    for(const i in this.torrents) {
+      if(this.torrents[i].hash === torrent.hash) {
+        if (!this.torrents[i].finished) {
+          this.torrents[i].downloaded = torrent.downloaded;
+          this.torrents[i].progress = torrent.progress;
+        }
+
+        this.torrents[i].uploaded = torrent.uploaded;
+        this.torrents[i].ratio = torrent.ratio;
+        this.torrents[i].active = torrent.active;
+        this.torrents[i].playing = torrent.playing;
+      }
+    }
   }
 }

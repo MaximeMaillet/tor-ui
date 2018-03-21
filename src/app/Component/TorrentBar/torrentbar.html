@@ -60,7 +60,7 @@
             </button>
             <button
                 class="btn btn-success"
-                *ngIf="!torrent.active && torrent.user.id == currentUser.id"
+                *ngIf="!torrent.active"
                 (click)="play()"
                 [disabled]="!torrent.hasOwnProperty('active')"
             >
