@@ -1,4 +1,4 @@
-# ToTor UI
+# ToTor UI (DEPRECATED)
 
 Interface graphic for [seedbox](https://github.com/MaximeMaillet/seedbox)
 
