@@ -7,7 +7,7 @@ export const environment = {
   production: false,
   version: '0.1.2',
   api: {
-    base_url: 'http://localhost:8090'
+    base_url: 'http://localhost:8080'
   },
   websocket: {
     base_url: 'http://localhost:8091'
